@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .slide-in {
+    animation: slideIn 2s ease-out;
+    /* Ensure that text doesn't wrap */
+    overflow:auto;
+  }
+
+  .text-appear {
+   
+    animation: textAppear 4s steps(40, end) forwards;
+  }
+
+  @keyframes textAppear {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
