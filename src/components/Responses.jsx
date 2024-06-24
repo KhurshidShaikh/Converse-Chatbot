@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useContext } from 'react'
-import { PromptContext } from '../PromptContext'
+
 import logo from '../assets/logo.svg'
 import { fetchDataFromApi } from '../api'
+import { useSelector } from 'react-redux'
+
 
 const Responses = () => {
-  const { prompt } = useContext(PromptContext);
+  const prompt = useSelector((state) => state.prompt.value)
+  
   const responseDiv = useRef();
 
   const formatResponse = (response) => {
@@ -92,7 +94,11 @@ const Responses = () => {
         responseDiv.current.appendChild(mainresDiv);
         mainresDiv.scrollIntoView({ behavior: 'smooth' })
        
-      })
+      }).catch((error)=>{
+        responsepara.innerText = "An error occurred .Sorry can't respond to your prompt :("
+      });
+
+
       promptDiv.scrollIntoView( { behavior: 'smooth' } )
      
     }
@@ -105,8 +111,8 @@ const Responses = () => {
 
       </div>
     ) : (
-      <div className='m-7 '>
-        <h2 className='text-gray-600 sm:text-[50px] text-[30px] font-semibold font-poppins slide-in'>
+      <div className='m-7 relative'>
+        <h2 className='text-gray-600 sm:text-[50px] text-[30px] font-semibold font-poppins slide-in fixed'>
           How can i help you today ?
         </h2>
       </div>
