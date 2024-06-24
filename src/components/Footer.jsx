@@ -77,7 +77,7 @@ const Footer = () => {
 
         }
       }} 
-      className='sm:text-[25px] text-[30px] text-white' />
+      className='sm:text-[25px] text-[35px] text-white' />
    </div>
       
       <span className='text-center font-poppins font-normal text-neutral-800'>Start a conversation with converse</span>
